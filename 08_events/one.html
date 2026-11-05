@@ -19,45 +19,42 @@
    </div>
 </body>
 <script>
-    // document.getElementById('owl').onclick = function(){
-    //     alert("owl clicked")
+    //doesnt give lot of functionality, so use Event listener
+    // document.getElementById('river').onclick = function(){
+    //     alert("Its a river!!! WOWWWW");
     // }
 
-     // attachEvent()
-    // jQuery - on
-
-    // type, timestamp, defaultPrevented
-    // target, toElement, srcElement, currentTarget,
-    // clientX, clientY, screenX, screenY
-    // altkey, ctrlkey, shiftkey, keyCode
-
     // document.getElementById('images').addEventListener('click', function(e){
-    //     console.log("clicked inside the ul");
+    //     console.log(e);        
+    //     alert("Images ul clicked");
     // }, false)
 
-    // document.getElementById('owl').addEventListener('click', function(e){
-    //     console.log("owl clicked");
-    //     e.stopPropagation()
+    // document.getElementById('river').addEventListener('click', function(e){
+    //     console.log(e);        
+    //     alert("Its a river!!! WOWWWW");
+    //     e.stopPropagation();
     // }, false)
-    
-    // document.getElementById('google').addEventListener('click',function(e){
+
+    /*when u click river (with 3rd param as false), the events bubble up,
+    so when u click on river
+    first river will be printed and then ul element will be printed
+    Propagation from bottom to up (inner to outer elements)
+
+    when u keep param 3 = true, propagation is reverse
+    */
+
+    // document.getElementById('google').addEventListener('click', function(e){
     //     e.preventDefault();
-    //     e.stopPropagation()
-    //     console.log("google clicked");
+    //     e.stopPropagation();
+    //     console.log(e);        
+    //     alert("Its a river!!! WOWWWW");
+    //     e.stopPropagation();
     // }, false)
-   
-    
+
     document.querySelector('#images').addEventListener('click', function(e){
-        console.log(e.target.tagName);
-        if (e.target.tagName === 'IMG') {
-            console.log(e.target.id);
-            let removeIt = e.target.parentNode
-            removeIt.remove()
-        }
-    
-        
-    })
-    
-    //removeIt.parentNode.removeChild(removeIt)
-</script>
+        let item = e.target.parentNode;
+        item.remove();
+    }, false)
+
+</script>   
 </html>
